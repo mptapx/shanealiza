@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff5f7">
+  <meta name="description" content="Connect with Mark G. Patricio — technology, creativity, and digital innovation.">
+
+  <title>Mark G. Patricio | MPTAP Digital Card</title>
+
+  <style>
+.save-qr {
+  display: block;
+  margin-top: 12px;
+  padding: 10px;
+  background: #f8e5eb;
+  color: #b86f89;
+  border: 1px solid #f2dce4;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  transition: .2s;
+}
+
+.save-qr:hover {
+  background: #f2d5df;
+}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #fff5f7;
+      --card: #ffffff;
+      --blue: #c9829b;
+      --cyan: #b86f89;
+      --text: #40343a;
+      --muted: #85747b;
+      --border: #f2dce4;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 35px 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at top, #f8dce5 0%, transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 430px;
+      padding: 32px 24px 25px;
+      background: linear-gradient(160deg, #ffffff, #fff9fb 70%);
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      box-shadow: 0 22px 70px rgba(185,120,145,.12);
+      text-align: center;
+      animation: appear .7s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile {
+      width: 100%;
+      height: 160px;
+      margin: 0 auto 18px;
+      padding: 3px;
+      border: 1px solid var(--cyan);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #d99caf, #b86f89);
+      box-shadow: 0 0 28px rgba(185,120,145,.20);
+      overflow: hidden;
+    }
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 9px;
+    }
+
+    h1 {
+      font-size: clamp(25px, 7vw, 31px);
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      margin-bottom: 17px;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      color: #987d88;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: left;
+      margin: 24px 0 12px;
+    }
+
+    /* THREE-COLUMN CONTACT GRID */
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(3, auto);
+      grid-auto-flow: column;
+      gap: 10px;
+    }
+    
+    .link {
+      min-width: 0;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff8fa;
+      color: var(--text);
+      text-decoration: none;
+      text-align: left;
+      transition: .2s;
+    }
+    .link:hover {
+      border-color: var(--blue);
+      background: #fff0f4;
+      transform: translateY(-2px);
+    }
+
+    .link:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #fce8ee;
+      color: var(--cyan);
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .link-icon svg {
+      width: 19px;
+      height: 19px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .link-label {
+      display: block;
+      margin-bottom: 4px;
+      color: #987d88;
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: .5px;
+    }
+
+    .link-value {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+      line-height: 1.4;
+    }
+
+    /* PAYMENT SECTION */
+
+    .payment-intro {
+      color: var(--muted);
+      font-size: 11px;
+      text-align: left;
+      line-height: 1.6;
+      margin: -4px 0 13px;
+    }
+
+    .payments {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .payment-card {
+      padding: 13px 10px;
+      border: 1px solid var(--border);
+      background: #fff8fa;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: .25s;
+      color: var(--text);
+      text-align: center;
+      min-width: 0;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--cyan);
+      background: #fff0f4;
+    }
+
+    .payment-logo {
+      height: 29px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .gcash {
+      color: #168cff;
+    }
+
+    .maribank {
+      color: #b86f89;
+    }
+
+    .qr-preview {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: white;
+      border-radius: 9px;
+      padding: 5px;
+      display: block;
+    }
+
+    .scan-text {
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    .tap-hint {
+      color: var(--cyan);
+      font-size: 9px;
+      margin-top: 5px;
+    }
+
+    /* QR MODAL */
+
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(55,35,44,.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .qr-modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 340px;
+      padding: 22px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: center;
+      animation: appear .25s ease;
+    }
+
+    .modal-content h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .modal-content p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .modal-content img {
+      width: 100%;
+      display: block;
+      padding: 8px;
+      background: white;
+      border-radius: 12px;
+    }
+
+    .close-modal {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #eacbd7;
+      border-radius: 11px;
+      background: #fff8fa;
+      color: var(--cyan);
+      cursor: pointer;
+    }
+
+    /* CONTACT BUTTONS */
+
+    .save {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      border: 0;
+      border-radius: 13px;
+      background: linear-gradient(100deg, #d99caf, #b86f89);
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .save:hover {
+      filter: brightness(1.08);
+    }
+
+    .save:active {
+      transform: scale(.98);
+    }
+
+    .copy-phone {
+      display: block;
+      margin: 13px auto 0;
+      padding: 7px 12px;
+      background: transparent;
+      border: 1px solid #eacbd7;
+      border-radius: 20px;
+      color: var(--cyan);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .status {
+      min-height: 18px;
+      margin-top: 10px;
+      color: var(--cyan);
+      font-size: 11px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 22px 0 16px;
+    }
+
+    .footer {
+      color: #987d88;
+      font-size: 11px;
+      letter-spacing: .4px;
+      line-height: 1.8;
+    }
+
+    .footer strong {
+      display: block;
+      margin-top: 7px;
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 360px) {
+      .card {
+        padding: 27px 15px 22px;
+      }
+
+      .links {
+        gap: 7px;
+      }
+
+      .link {
+        min-height: 105px;
+        padding: 10px 3px;
+      }
+
+      .link-value {
+        font-size: 9px;
+      }
+
+      .link-label {
+        font-size: 8px;
+      }
+
+      .payments {
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="card">
+
+  <div class="profile">
+    <img src="1.jpg" alt="Mark G. Patricio"
+         onerror="this.style.display='none'">
+  </div>
+
+  <p class="eyebrow">PERSONAL DIGITAL CARD</p>
+
+  <h1>Mark G. Patricio</h1>
+
+  <p class="tagline">
+    TECHNOLOGY · CREATIVITY · INNOVATION
+  </p>
+
+  <p class="intro">
+    Passionate about technology, digital innovation, and creative
+    solutions. I value continuous learning, meaningful connections,
+    and turning ideas into reality.
+  </p>
+
+  <!-- CONTACT AND SOCIAL LINKS -->
+
+  <p class="section-title">LET'S CONNECT</p>
+
+  <div class="links">
+
+  <!-- COLUMN 1 -->
+
+  <a class="link" href="tel:+639912040196">
+    <span class="link-icon">☎</span>
+    <span>
+      <span class="link-label">PHONE</span>
+      <span class="link-value">+63 991 204 0196</span>
+    </span>
+  </a>
+
+  <a class="link" href="mailto:gasconpatriciomark@gmail.com">
+    <span class="link-icon">✉</span>
+    <span>
+      <span class="link-label">EMAIL</span>
+      <span class="link-value">gasconpatriciomark@gmail.com</span>
+    </span>
+  </a>
+
+  <a class="link"
+     href="https://maps.app.goo.gl/qd1f2Vo6Dj5C2SQE9"
+     target="_blank" rel="noopener noreferrer">
+    <span class="link-icon">⌖</span>
+    <span>
+      <span class="link-label">LOCATION</span>
+      <span class="link-value">View Location & Directions →</span>
+    </span>
+  </a>
+
+  <!-- COLUMN 2 -->
+
+  <a class="link"
+     href="https://www.linkedin.com/in/mark-gascon-patricio-7159b4305/"
+     target="_blank" rel="noopener noreferrer">
+    <span class="link-icon">in</span>
+    <span>
+      <span class="link-label">LINKEDIN</span>
+      <span class="link-value">Mark G. Patricio</span>
+    </span>
+  </a>
+
+  <a class="link"
+     href="https://www.facebook.com/mark.g.patricio"
+     target="_blank" rel="noopener noreferrer">
+    <span class="link-icon">f</span>
+    <span>
+      <span class="link-label">FACEBOOK</span>
+      <span class="link-value">Marko</span>
+    </span>
+  </a>
+
+  <a class="link"
+     href="https://www.instagram.com/_patriciomark/"
+     target="_blank" rel="noopener noreferrer">
+    <span class="link-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"
+                fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
+    <span>
+      <span class="link-label">INSTAGRAM</span>
+      <span class="link-value">_patriciomark</span>
+    </span>
+  </a>
+
+</div>
+
+  <!-- PAYMENT METHODS -->
+
+  <p class="section-title">PAYMENT METHODS</p>
+
+  <p class="payment-intro">
+    Need to send a payment? Choose your preferred payment method
+    and scan the QR code.
+  </p>
+
+  <div class="payments">
+
+    <button class="payment-card" type="button"
+            data-name="GCash"
+            data-qr="gcash-qr.jpg">
+
+      <span class="payment-logo gcash">GCash</span>
+
+      <img class="qr-preview"
+           src="gcash-qr.jpg"
+           alt="GCash payment QR code">
+
+      <span class="scan-text">Scan to pay</span>
+      <span class="tap-hint">TAP TO ENLARGE ↗</span>
+<a href="gcash-qr.jpg"
+   download="MPTAP-GCash-QR.jpg"
+   class="save-qr">
+   ↓ Save QR Code
+</a>
+
+
+    </button>
+
+    <button class="payment-card" type="button"
+            data-name="MariBank"
+            data-qr="maribank-qr.jpg">
+
+      <span class="payment-logo maribank">MariBank</span>
+
+      <img class="qr-preview"
+           src="maribank-qr.jpg"
+           alt="MariBank payment QR code">
+
+      <span class="scan-text">Scan to pay</span>
+      <span class="tap-hint">TAP TO ENLARGE ↗</span>
+<a href="maribank-qr.jpg"
+   download="MPTAP-MariBank-QR.jpg"
+   class="save-qr">
+   ↓ Save QR Code
+</a>
+
+    </button>
+
+
+  </div>
+
+  <!-- QR ENLARGEMENT MODAL -->
+
+  <div class="qr-modal" id="qrModal"
+       role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+
+      <h2 id="modalTitle">GCash</h2>
+
+      <p>Scan this QR code to send a payment.</p>
+
+      <img id="modalQR" src="gcash-qr.jpg"
+           alt="Enlarged payment QR code">
+
+      <button class="close-modal" id="closeModal"
+              type="button">
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- CONTACT BUTTONS -->
+
+  <button class="save" id="saveContact" type="button">
+    ＋ &nbsp; Save My Contact
+  </button>
+
+  <button class="copy-phone" id="copyPhone" type="button">
+    Copy phone number
+  </button>
+
+  <p class="status" id="status"
+     role="status" aria-live="polite"></p>
+
+  <div class="divider"></div>
+
+  <p class="footer">
+    Thank you for being here.
+    <strong>POWERED BY MPTAP</strong>
+  </p>
+
+</main>
+
+<script>
+
+  const status = document.getElementById("status");
+
+  // QR CODE ENLARGEMENT
+
+  const qrModal = document.getElementById("qrModal");
+  const modalQR = document.getElementById("modalQR");
+  const modalTitle = document.getElementById("modalTitle");
+  const closeModal = document.getElementById("closeModal");
+
+  document.querySelectorAll(".payment-card").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      modalTitle.textContent = button.dataset.name;
+      modalQR.src = button.dataset.qr;
+      modalQR.alt = button.dataset.name + " payment QR code";
+
+      qrModal.classList.add("show");
+      closeModal.focus();
+
+    });
+
+  });
+
+  function hideModal() {
+    qrModal.classList.remove("show");
+  }
+
+  closeModal.addEventListener("click", hideModal);
+
+  qrModal.addEventListener("click", event => {
+    if (event.target === qrModal) {
+      hideModal();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      hideModal();
+    }
+  });
+
+  // SAVE CONTACT
+
+  document.getElementById("saveContact")
+    .addEventListener("click", function () {
+
+    const contact = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "N:Patricio;Mark G.;;;",
+      "FN:Mark G. Patricio",
+      "TEL;TYPE=CELL:+639912040196",
+      "EMAIL;TYPE=INTERNET:gasconpatriciomark@gmail.com",
+      "URL:https://www.facebook.com/mark.g.patricio",
+      "URL:https://www.instagram.com/_patriciomark/",
+      "URL:https://www.linkedin.com/in/mark-gascon-patricio-7159b4305/",
+      "URL:https://maps.app.goo.gl/qd1f2Vo6Dj5C2SQE9",
+      "END:VCARD"
+    ].join("\r\n") + "\r\n";
+
+    const blob = new Blob([contact], {
+      type: "text/vcard;charset=utf-8"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "Mark-G-Patricio.vcf";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    status.textContent =
+      "Your contact file is ready. Check your Downloads folder.";
+
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+
+  });
+
+  // COPY PHONE NUMBER
+
+  document.getElementById("copyPhone")
+    .addEventListener("click", async function () {
+
+    try {
+
+      await navigator.clipboard.writeText("+63 991 204 0196");
+      status.textContent = "Phone number copied!";
+
+    } catch (error) {
+
+      status.textContent =
+        "Please copy manually: +63 991 204 0196";
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
