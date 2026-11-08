@@ -1,143 +1,184 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fff5f7">
-  <meta name="description" content="Connect with Mark G. Patricio — technology, creativity, and digital innovation.">
-
+  <meta name="description" content="Connect with Shane Aliza H. Domingo — technology, creativity, and digital innovation.">
   <title>Shane Aliza H. Domingo | MPTAPX Digital Card</title>
 
   <style>
-.save-qr {
-  display: block;
-  margin-top: 12px;
-  padding: 10px;
-  background: #f8e5eb;
-  color: #b86f89;
-  border: 1px solid #f2dce4;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  transition: .2s;
+    :root {
+  --page: #f3e9df;
+  --page-deep: #e9d9cb;
+  --surface: #fffaf5;
+  --surface-soft: #f7eee6;
+
+  --rose: #a9826c;
+  --rose-dark: #80614f;
+  --rose-light: #eee0d4;
+
+  --ink: #342a25;
+  --muted: #89776b;
+  --line: #e7d8ca;
+
+  --shadow: 0 24px 70px rgba(80, 57, 43, .12);
 }
 
-.save-qr:hover {
-  background: #f2d5df;
-}
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    :root {
-      --bg: #A5AO85;
-      --card: #ffffff;
-      --blue: #c9829b;
-      --cyan: #b86f89;
-      --text: #40343a;
-      --muted: #85747b;
-      --border: #f2dce4;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       min-height: 100vh;
-      padding: 35px 16px;
+      padding: 42px 16px;
       display: flex;
       justify-content: center;
       align-items: center;
       background:
-        radial-gradient(ellipse at top, #f8dce5 0%, transparent 60%),
-        var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
+        radial-gradient(circle at 12% 10%, rgba(246, 213, 225, .75), transparent 28rem),
+        radial-gradient(circle at 90% 85%, rgba(240, 220, 229, .75), transparent 25rem),
+        var(--page);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card {
+      position: relative;
+      isolation: isolate;
       width: 100%;
-      max-width: 430px;
-      padding: 32px 24px 25px;
-      background: linear-gradient(160deg, #ffffff, #fff9fb 70%);
-      border: 1px solid var(--border);
-      border-radius: 25px;
-      box-shadow: 0 22px 70px rgba(185,120,145,.12);
+      max-width: 460px;
+      padding: 30px 26px 24px;
+      overflow: hidden;
+      background: linear-gradient(155deg, #ffffff 0%, #fff 55%, #fff9fb 100%);
+      border: 1px solid rgba(240, 220, 228, .95);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
       text-align: center;
-      animation: appear .7s ease both;
+      animation: card-enter .65s ease both;
     }
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -110px;
+      left: 50%;
+      width: 330px;
+      height: 220px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(246, 227, 234, .72);
+      filter: blur(2px);
+    }
+
+    @keyframes card-enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      color: var(--rose-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+    }
+
+    .brand-line::before,
+    .brand-line::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: #dfb8c7;
+    }
+
+    .profile-wrap {
+      width: 174px;
+      height: 174px;
+      margin: 0 auto 20px;
+      padding: 5px;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #e6b7c8, #b86f89 75%);
+      box-shadow: 0 10px 28px rgba(184, 111, 137, .22);
     }
 
     .profile {
       width: 100%;
-      height: 160px;
-      margin: 0 auto 18px;
-      padding: 3px;
-      border: 1px solid var(--cyan);
-      border-radius: 16px;
-      background: linear-gradient(135deg, #d99caf, #b86f89);
-      box-shadow: 0 0 28px rgba(185,120,145,.20);
-      overflow: hidden;
-    }
-    .profile img {
-      width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center;
-      border-radius: 12px;
-      display: block;
+      border: 4px solid #fff;
+      border-radius: 50%;
+      background: var(--rose-light);
     }
 
     .eyebrow {
-      color: var(--cyan);
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-bottom: 9px;
+      margin-bottom: 8px;
+      color: var(--rose);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2.8px;
     }
 
     h1 {
-      font-size: clamp(25px, 7vw, 31px);
       margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 7vw, 33px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -.5px;
     }
 
     .tagline {
-      color: var(--cyan);
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
       margin-bottom: 17px;
+      color: var(--rose-dark);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
     }
 
     .intro {
+      max-width: 340px;
+      margin: 0 auto 27px;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.75;
-      margin-bottom: 25px;
+      line-height: 1.8;
     }
 
-    .section-title {
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 27px 0 13px;
       color: #987d88;
-      font-size: 10px;
-      font-weight: bold;
+      font-size: 9px;
+      font-weight: 800;
       letter-spacing: 2px;
       text-align: left;
-      margin: 24px 0 12px;
     }
 
-    /* THREE-COLUMN CONTACT GRID */
+    .section-heading::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
 
     .links {
       display: grid;
@@ -146,45 +187,48 @@
       grid-auto-flow: column;
       gap: 10px;
     }
-    
+
     .link {
       min-width: 0;
-      min-height: 90px;
+      min-height: 82px;
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fff8fa;
-      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface-soft);
+      color: var(--ink);
       text-decoration: none;
       text-align: left;
-      transition: .2s;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
     }
+
     .link:hover {
-      border-color: var(--blue);
-      background: #fff0f4;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      border-color: #d9aabd;
+      background: #fff3f7;
+      box-shadow: 0 8px 20px rgba(166, 95, 123, .08);
     }
 
     .link:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--cyan);
+    button:focus-visible,
+    .save-qr:focus-visible {
+      outline: 2px solid var(--rose-dark);
       outline-offset: 3px;
     }
 
     .link-icon {
-      width: 38px;
-      height: 38px;
-      flex-shrink: 0;
+      width: 37px;
+      height: 37px;
+      flex: 0 0 37px;
       display: grid;
       place-items: center;
-      border-radius: 11px;
-      background: #fce8ee;
-      color: var(--cyan);
-      font-size: 18px;
-      font-weight: bold;
+      border-radius: 12px;
+      background: var(--rose-light);
+      color: var(--rose-dark);
+      font-size: 17px;
+      font-weight: 800;
     }
 
     .link-icon svg {
@@ -201,94 +245,114 @@
       display: block;
       margin-bottom: 4px;
       color: #987d88;
-      font-size: 9px;
-      font-weight: bold;
-      letter-spacing: .5px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .8px;
     }
 
     .link-value {
       display: block;
-      font-size: 10px;
-      font-weight: 600;
       overflow-wrap: anywhere;
-      line-height: 1.4;
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 650;
+      line-height: 1.45;
     }
 
-    /* PAYMENT SECTION */
-
     .payment-intro {
+      margin: -3px 0 13px;
       color: var(--muted);
       font-size: 11px;
+      line-height: 1.65;
       text-align: left;
-      line-height: 1.6;
-      margin: -4px 0 13px;
     }
 
     .payments {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
     .payment-card {
-      padding: 13px 10px;
-      border: 1px solid var(--border);
-      background: #fff8fa;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: .25s;
-      color: var(--text);
-      text-align: center;
       min-width: 0;
+      padding: 13px 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: var(--surface-soft);
+      text-align: center;
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
     }
 
     .payment-card:hover {
       transform: translateY(-3px);
-      border-color: var(--cyan);
-      background: #fff0f4;
+      border-color: #d9aabd;
+      box-shadow: 0 8px 20px rgba(166, 95, 123, .08);
     }
 
     .payment-logo {
-      height: 29px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      min-height: 25px;
+      margin-bottom: 9px;
       font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-weight: 800;
     }
 
-    .gcash {
-      color: #168cff;
-    }
+    .gcash { color: #168cff; }
+    .maribank { color: #b86f89; }
 
-    .maribank {
-      color: #b86f89;
+    .qr-open {
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
     }
 
     .qr-preview {
+      display: block;
       width: 100%;
       aspect-ratio: 1;
-      object-fit: contain;
-      background: white;
-      border-radius: 9px;
       padding: 5px;
-      display: block;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #fff;
     }
 
     .scan-text {
+      display: block;
+      margin-top: 9px;
       color: var(--muted);
       font-size: 10px;
-      margin-top: 10px;
     }
 
     .tap-hint {
-      color: var(--cyan);
-      font-size: 9px;
+      display: block;
       margin-top: 5px;
+      color: var(--rose-dark);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: .7px;
     }
 
-    /* QR MODAL */
+    .save-qr {
+      display: block;
+      margin-top: 11px;
+      padding: 9px 7px;
+      border: 1px solid #efd8e1;
+      border-radius: 10px;
+      background: #f8eaf0;
+      color: var(--rose-dark);
+      font-size: 10px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .save-qr:hover {
+      transform: translateY(-1px);
+      background: #f2dce5;
+    }
 
     .qr-modal {
       position: fixed;
@@ -298,8 +362,8 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(55,35,44,.78);
-      backdrop-filter: blur(10px);
+      background: rgba(55, 35, 44, .72);
+      backdrop-filter: blur(9px);
     }
 
     .qr-modal.show {
@@ -309,132 +373,281 @@
     .modal-content {
       width: 100%;
       max-width: 340px;
-      padding: 22px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
       text-align: center;
-      animation: appear .25s ease;
+      box-shadow: 0 20px 60px rgba(30, 15, 22, .2);
+      animation: card-enter .22s ease both;
     }
 
     .modal-content h2 {
-      font-size: 20px;
       margin-bottom: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
     }
 
     .modal-content p {
+      margin-bottom: 16px;
       color: var(--muted);
       font-size: 12px;
-      margin-bottom: 16px;
     }
 
     .modal-content img {
-      width: 100%;
       display: block;
+      width: 100%;
       padding: 8px;
-      background: white;
-      border-radius: 12px;
+      border-radius: 13px;
+      background: #fff;
     }
 
     .close-modal {
       width: 100%;
-      padding: 12px;
       margin-top: 15px;
+      padding: 12px;
       border: 1px solid #eacbd7;
       border-radius: 11px;
-      background: #fff8fa;
-      color: var(--cyan);
+      background: #fff7fa;
+      color: var(--rose-dark);
+      font-weight: 700;
       cursor: pointer;
+      transition: background .2s ease;
     }
 
-    /* CONTACT BUTTONS */
+    .close-modal:hover {
+      background: var(--rose-light);
+    }
 
     .save {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 21px;
       padding: 15px;
       border: 0;
-      border-radius: 13px;
-      background: linear-gradient(100deg, #d99caf, #b86f89);
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
+      border-radius: 14px;
+      background: linear-gradient(105deg, #d99caf, #b86f89);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .2px;
       cursor: pointer;
-      transition: .2s;
+      box-shadow: 0 8px 18px rgba(184, 111, 137, .19);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
     }
 
     .save:hover {
-      filter: brightness(1.08);
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+      box-shadow: 0 11px 23px rgba(184, 111, 137, .24);
     }
 
     .save:active {
-      transform: scale(.98);
+      transform: scale(.985);
     }
 
     .copy-phone {
       display: block;
-      margin: 13px auto 0;
-      padding: 7px 12px;
-      background: transparent;
+      margin: 12px auto 0;
+      padding: 8px 14px;
       border: 1px solid #eacbd7;
-      border-radius: 20px;
-      color: var(--cyan);
-      font-size: 11px;
+      border-radius: 22px;
+      background: transparent;
+      color: var(--rose-dark);
+      font-size: 10px;
+      font-weight: 700;
       cursor: pointer;
+      transition: background .2s ease;
+    }
+
+    .copy-phone:hover {
+      background: #fff3f7;
     }
 
     .status {
       min-height: 18px;
       margin-top: 10px;
-      color: var(--cyan);
+      color: var(--rose-dark);
       font-size: 11px;
     }
 
     .divider {
       height: 1px;
-      background: var(--border);
-      margin: 22px 0 16px;
+      margin: 22px 0 15px;
+      background: var(--line);
     }
 
     .footer {
       color: #987d88;
-      font-size: 11px;
-      letter-spacing: .4px;
+      font-size: 10px;
+      letter-spacing: .3px;
       line-height: 1.8;
     }
 
     .footer strong {
       display: block;
       margin-top: 7px;
-      color: var(--cyan);
-      font-size: 10px;
-      letter-spacing: 2px;
+      color: var(--rose-dark);
+      font-size: 9px;
+      letter-spacing: 2.2px;
     }
 
-    @media (max-width: 360px) {
-      .card {
-        padding: 27px 15px 22px;
-      }
+    @media (max-width: 380px) {
+      body { padding: 20px 10px; }
+      .card { padding: 25px 15px 21px; border-radius: 24px; }
+      .profile-wrap { width: 150px; height: 150px; }
+      .links { gap: 7px; }
+      .link { min-height: 82px; gap: 7px; padding: 9px 7px; }
+      .link-icon { width: 32px; height: 32px; flex-basis: 32px; }
+      .link-value { font-size: 9px; }
+      .link-label { font-size: 7px; }
+      .payments { gap: 8px; }
+    }
 
-      .links {
-        gap: 7px;
-      }
 
-      .link {
-        min-height: 105px;
-        padding: 10px 3px;
-      }
+    /* LIGHT / DARK MODE TOGGLE */
+    .theme-toggle {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font: inherit;
+      font-size: 10px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
 
-      .link-value {
-        font-size: 9px;
-      }
+    .theme-toggle:hover {
+      border-color: var(--rose);
+      background: var(--rose-light);
+    }
 
-      .link-label {
-        font-size: 8px;
-      }
+    .theme-icon {
+      font-size: 14px;
+      line-height: 1;
+    }
 
-      .payments {
-        gap: 8px;
+    /* Dark theme colors are applied when the page has data-theme="dark". */
+    html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page: #10131b;
+  --page-deep: #171b26;
+  --surface: #1b202c;
+  --surface-soft: #222938;
+
+  --rose: #d99ab2;
+  --rose-dark: #e5a9c0;
+  --rose-light: #3a2937;
+
+  --ink: #f4edf1;
+  --muted: #b8aab3;
+  --line: #3a3441;
+
+  --shadow: 0 24px 70px rgba(0, 0, 0, .38);
+}
+
+    html[data-theme="dark"] body {
+      background:
+        radial-gradient(circle at 12% 10%, rgba(105, 57, 83, .24), transparent 28rem),
+        radial-gradient(circle at 90% 85%, rgba(58, 48, 76, .28), transparent 25rem),
+        var(--page);
+    }
+
+    html[data-theme="dark"] .card {
+      background: linear-gradient(155deg, #202633 0%, #1b202c 58%, #242331 100%);
+      border-color: #3b3542;
+    }
+
+    html[data-theme="dark"] .card::before {
+      background: rgba(132, 76, 105, .20);
+    }
+
+    html[data-theme="dark"] .brand-line::before,
+    html[data-theme="dark"] .brand-line::after {
+      background: #765064;
+    }
+
+    html[data-theme="dark"] .section-heading {
+      color: #c1a7b5;
+    }
+
+    html[data-theme="dark"] .link:hover {
+      border-color: #96617b;
+      background: #302638;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .16);
+    }
+
+    html[data-theme="dark"] .payment-card:hover {
+      border-color: #96617b;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .16);
+    }
+
+    html[data-theme="dark"] .qr-open,
+    html[data-theme="dark"] .qr-preview,
+    html[data-theme="dark"] .modal-content img {
+      background: #fff;
+    }
+
+    html[data-theme="dark"] .save-qr {
+      border-color: #604255;
+      background: #382a38;
+      color: #f0bfd1;
+    }
+
+    html[data-theme="dark"] .save-qr:hover {
+      background: #493044;
+    }
+
+    html[data-theme="dark"] .modal-content {
+      background: #202633;
+      border-color: #48404d;
+      color: var(--ink);
+    }
+
+    html[data-theme="dark"] .close-modal,
+    html[data-theme="dark"] .copy-phone {
+      border-color: #65485a;
+      background: #302638;
+      color: #f0bfd1;
+    }
+
+    html[data-theme="dark"] .close-modal:hover,
+    html[data-theme="dark"] .copy-phone:hover {
+      background: #403044;
+    }
+
+    html[data-theme="dark"] .theme-toggle {
+      border-color: #594253;
+      background: #302638;
+      color: #f4dce6;
+    }
+
+    html[data-theme="dark"] .theme-toggle:hover {
+      background: #493044;
+    }
+
+    html[data-theme="dark"] .profile {
+      border-color: #202633;
+    }
+
+    html[data-theme="dark"] .status {
+      color: #efb5cc;
+    }
+
+    @media (max-width: 380px) {
+      .theme-toggle {
+        top: 13px;
+        right: 13px;
+        padding: 7px 9px;
       }
     }
 
@@ -442,27 +655,30 @@
       *, *::before, *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 
 <body>
-
 <main class="card">
+  <button class="theme-toggle" id="themeToggle" type="button"
+          aria-label="Switch to dark mode" aria-pressed="false">
+    <span class="theme-icon" aria-hidden="true">☾</span>
+    <span class="theme-label">Dark mode</span>
+  </button>
 
-  <div class="profile">
-    <img src="1.jpg" alt="Mark G. Patricio"
+  <div class="brand-line">MPTAPX DIGITAL PROFILE</div>
+
+  <div class="profile-wrap">
+    <img class="profile" src="1.jpg" alt="Mark G. Patricio"
          onerror="this.style.display='none'">
   </div>
 
   <p class="eyebrow">PERSONAL DIGITAL CARD</p>
-
   <h1>Shane Aliza H. Domingo</h1>
-
-  <p class="tagline">
-    TECHNOLOGY · CREATIVITY · INNOVATION
-  </p>
+  <p class="tagline">TECHNOLOGY · CREATIVITY · INNOVATION</p>
 
   <p class="intro">
     Passionate about technology, digital innovation, and creative
@@ -470,161 +686,114 @@
     and turning ideas into reality.
   </p>
 
-  <!-- CONTACT AND SOCIAL LINKS -->
-
-  <p class="section-title">LET'S CONNECT</p>
+  <p class="section-heading">LET'S CONNECT</p>
 
   <div class="links">
+    <!-- COLUMN 1 -->
+    <a class="link" href="tel:+639685881144">
+      <span class="link-icon">☎</span>
+      <span>
+        <span class="link-label">PHONE</span>
+        <span class="link-value">+63 685 588 1144</span>
+      </span>
+    </a>
 
-  <!-- COLUMN 1 -->
+    <a class="link" href="mailto:shanealiza19@gmail.com">
+      <span class="link-icon">✉</span>
+      <span>
+        <span class="link-label">EMAIL</span>
+        <span class="link-value">shanealiza19@gmail.com</span>
+      </span>
+    </a>
 
-  <a class="link" href="tel:+639685881144">
-    <span class="link-icon">☎</span>
-    <span>
-      <span class="link-label">PHONE</span>
-      <span class="link-value">+63 685 588 1144</span>
-    </span>
-  </a>
+    <a class="link" href="https://maps.app.goo.gl/XcUY7xvsqYuieGZx7"
+       target="_blank" rel="noopener noreferrer">
+      <span class="link-icon">⌖</span>
+      <span>
+        <span class="link-label">LOCATION</span>
+        <span class="link-value">View Location &amp; Directions →</span>
+      </span>
+    </a>
 
-  <a class="link" href="mailto:shanealiza19@gmail.com">
-    <span class="link-icon">✉</span>
-    <span>
-      <span class="link-label">EMAIL</span>
-      <span class="link-value">shanealiza19@gmail.com</span>
-    </span>
-  </a>
+    <!-- COLUMN 2 -->
+    <a class="link"
+       href="https://www.linkedin.com/in/mark-gascon-patricio-7159b4305/"
+       target="_blank" rel="noopener noreferrer">
+      <span class="link-icon">in</span>
+      <span>
+        <span class="link-label">LINKEDIN</span>
+        <span class="link-value">Shane Aliza H. Domingo</span>
+      </span>
+    </a>
 
-  <a class="link"
-     href="https://maps.app.goo.gl/XcUY7xvsqYuieGZx7"
-     target="_blank" rel="noopener noreferrer">
-    <span class="link-icon">⌖</span>
-    <span>
-      <span class="link-label">LOCATION</span>
-      <span class="link-value">View Location & Directions →</span>
-    </span>
-  </a>
+    <a class="link" href="https://www.facebook.com/share/1kj9mxxoff"
+       target="_blank" rel="noopener noreferrer">
+      <span class="link-icon">f</span>
+      <span>
+        <span class="link-label">FACEBOOK</span>
+        <span class="link-value">Shane Aliza Domingo</span>
+      </span>
+    </a>
 
-  <!-- COLUMN 2 -->
+    <a class="link" href="https://www.instagram.com/im_sshanedyy/"
+       target="_blank" rel="noopener noreferrer">
+      <span class="link-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span>
+        <span class="link-label">INSTAGRAM</span>
+        <span class="link-value">im_sshanedyy</span>
+      </span>
+    </a>
+  </div>
 
-  <a class="link"
-     href="https://www.linkedin.com/in/mark-gascon-patricio-7159b4305/"
-     target="_blank" rel="noopener noreferrer">
-    <span class="link-icon">in</span>
-    <span>
-      <span class="link-label">LINKEDIN</span>
-      <span class="link-value">Shane Aliza H. Domingo</span>
-    </span>
-  </a>
-
-  <a class="link"
-     href="https://www.facebook.com/share/1kj9mxxoff"
-     target="_blank" rel="noopener noreferrer">
-    <span class="link-icon">f</span>
-    <span>
-      <span class="link-label">FACEBOOK</span>
-      <span class="link-value">Shane Aliza Domingo</span>
-    </span>
-  </a>
-
-  <a class="link"
-     href="https://www.instagram.com/im_sshanedyy/"
-     target="_blank" rel="noopener noreferrer">
-    <span class="link-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1"
-                fill="currentColor" stroke="none"/>
-      </svg>
-    </span>
-    <span>
-      <span class="link-label">INSTAGRAM</span>
-      <span class="link-value">im_sshanedyy</span>
-    </span>
-  </a>
-
-</div>
-
-  <!-- PAYMENT METHODS -->
-
-  <p class="section-title">PAYMENT METHODS</p>
-
+  <p class="section-heading">PAYMENT METHODS</p>
   <p class="payment-intro">
     Need to send a payment? Choose your preferred payment method
     and scan the QR code.
   </p>
 
   <div class="payments">
-
-    <button class="payment-card" type="button"
-            data-name="GCash"
-            data-qr="gcash-qr.jpg">
-
+    <div class="payment-card">
       <span class="payment-logo gcash">GCash</span>
-
-      <img class="qr-preview"
-           src="gcash-qr.jpg"
-           alt="GCash payment QR code">
-
-      <span class="scan-text">Scan to pay</span>
-      <span class="tap-hint">TAP TO ENLARGE ↗</span>
-<a href="gcash-qr.jpg"
-   download="MPTAP-GCash-QR.jpg"
-   class="save-qr">
-   ↓ Save QR Code
-</a>
-
-
-    </button>
-
-    <button class="payment-card" type="button"
-            data-name="MariBank"
-            data-qr="maribank-qr.jpg">
-
-      <span class="payment-logo maribank">MariBank</span>
-
-      <img class="qr-preview"
-           src="maribank-qr.jpg"
-           alt="MariBank payment QR code">
-
-      <span class="scan-text">Scan to pay</span>
-      <span class="tap-hint">TAP TO ENLARGE ↗</span>
-<a href="maribank-qr.jpg"
-   download="MPTAP-MariBank-QR.jpg"
-   class="save-qr">
-   ↓ Save QR Code
-</a>
-
-    </button>
-
-
-  </div>
-
-  <!-- QR ENLARGEMENT MODAL -->
-
-  <div class="qr-modal" id="qrModal"
-       role="dialog" aria-modal="true"
-       aria-labelledby="modalTitle">
-
-    <div class="modal-content">
-
-      <h2 id="modalTitle">GCash</h2>
-
-      <p>Scan this QR code to send a payment.</p>
-
-      <img id="modalQR" src="gcash-qr.jpg"
-           alt="Enlarged payment QR code">
-
-      <button class="close-modal" id="closeModal"
-              type="button">
-        Close
+      <button class="qr-open" type="button" data-name="GCash"
+              data-qr="gcash-qr.jpg" aria-label="Enlarge GCash QR code">
+        <img class="qr-preview" src="gcash-qr.jpg" alt="GCash payment QR code">
       </button>
-
+      <span class="scan-text">Scan to pay</span>
+      <span class="tap-hint">TAP TO ENLARGE ↗</span>
+      <a href="gcash-qr.jpg" download="MPTAP-GCash-QR.jpg" class="save-qr">
+        ↓ Save QR Code
+      </a>
     </div>
 
+    <div class="payment-card">
+      <span class="payment-logo maribank">MariBank</span>
+      <button class="qr-open" type="button" data-name="MariBank"
+              data-qr="maribank-qr.jpg" aria-label="Enlarge MariBank QR code">
+        <img class="qr-preview" src="maribank-qr.jpg" alt="MariBank payment QR code">
+      </button>
+      <span class="scan-text">Scan to pay</span>
+      <span class="tap-hint">TAP TO ENLARGE ↗</span>
+      <a href="maribank-qr.jpg" download="MPTAP-MariBank-QR.jpg" class="save-qr">
+        ↓ Save QR Code
+      </a>
+    </div>
   </div>
 
-  <!-- CONTACT BUTTONS -->
+  <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true"
+       aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <h2 id="modalTitle">GCash</h2>
+      <p>Scan this QR code to send a payment.</p>
+      <img id="modalQR" src="gcash-qr.jpg" alt="Enlarged payment QR code">
+      <button class="close-modal" id="closeModal" type="button">Close</button>
+    </div>
+  </div>
 
   <button class="save" id="saveContact" type="button">
     ＋ &nbsp; Save My Contact
@@ -634,42 +803,70 @@
     Copy phone number
   </button>
 
-  <p class="status" id="status"
-     role="status" aria-live="polite"></p>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
 
   <div class="divider"></div>
-
   <p class="footer">
     Thank you for being here.
     <strong>POWERED BY MPTAP</strong>
   </p>
-
 </main>
 
 <script>
 
+  // THEME TOGGLE — LIGHT MODE IS THE DEFAULT FOR FIRST-TIME VISITORS
+  const themeToggle = document.getElementById("themeToggle");
+  const themeIcon = themeToggle.querySelector(".theme-icon");
+  const themeLabel = themeToggle.querySelector(".theme-label");
+
+  function applyTheme(theme) {
+    const isDark = theme === "dark";
+    document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    themeIcon.textContent = isDark ? "☀" : "☾";
+    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    document.querySelector('meta[name="theme-color"]').setAttribute(
+      "content", isDark ? "#10131b" : "#fff5f7"
+    );
+  }
+
+   let savedTheme = "dark";
+
+try {
+  savedTheme = localStorage.getItem("mptapx-theme") || "dark";
+} catch (error) {
+  // If browser storage is unavailable
+}
+
+applyTheme(savedTheme);
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem("mptapx-theme", nextTheme);
+    } catch (error) {
+      // Theme switching still works for the current visit if storage is unavailable.
+    }
+  });
+
   const status = document.getElementById("status");
 
   // QR CODE ENLARGEMENT
-
   const qrModal = document.getElementById("qrModal");
   const modalQR = document.getElementById("modalQR");
   const modalTitle = document.getElementById("modalTitle");
   const closeModal = document.getElementById("closeModal");
 
-  document.querySelectorAll(".payment-card").forEach(button => {
-
+  document.querySelectorAll(".qr-open").forEach(button => {
     button.addEventListener("click", () => {
-
       modalTitle.textContent = button.dataset.name;
       modalQR.src = button.dataset.qr;
       modalQR.alt = button.dataset.name + " payment QR code";
-
       qrModal.classList.add("show");
       closeModal.focus();
-
     });
-
   });
 
   function hideModal() {
@@ -679,22 +876,15 @@
   closeModal.addEventListener("click", hideModal);
 
   qrModal.addEventListener("click", event => {
-    if (event.target === qrModal) {
-      hideModal();
-    }
+    if (event.target === qrModal) hideModal();
   });
 
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      hideModal();
-    }
+    if (event.key === "Escape") hideModal();
   });
 
-  // SAVE CONTACT
-
-  document.getElementById("saveContact")
-    .addEventListener("click", function () {
-
+  // SAVE CONTACT — EXISTING DETAILS PRESERVED
+  document.getElementById("saveContact").addEventListener("click", function () {
     const contact = [
       "BEGIN:VCARD",
       "VERSION:3.0",
@@ -709,47 +899,29 @@
       "END:VCARD"
     ].join("\r\n") + "\r\n";
 
-    const blob = new Blob([contact], {
-      type: "text/vcard;charset=utf-8"
-    });
-
+    const blob = new Blob([contact], { type: "text/vcard;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
 
     link.href = url;
     link.download = "Mark-G-Patricio.vcf";
-
     document.body.appendChild(link);
     link.click();
     link.remove();
 
-    status.textContent =
-      "Your contact file is ready. Check your Downloads folder.";
-
+    status.textContent = "Your contact file is ready. Check your Downloads folder.";
     setTimeout(() => URL.revokeObjectURL(url), 1500);
-
   });
 
-  // COPY PHONE NUMBER
-
-  document.getElementById("copyPhone")
-    .addEventListener("click", async function () {
-
+  // COPY PHONE NUMBER — EXISTING NUMBER PRESERVED
+  document.getElementById("copyPhone").addEventListener("click", async function () {
     try {
-
       await navigator.clipboard.writeText("+63 991 204 0196");
       status.textContent = "Phone number copied!";
-
     } catch (error) {
-
-      status.textContent =
-        "Please copy manually: +63 991 204 0196";
-
+      status.textContent = "Please copy manually: +63 991 204 0196";
     }
-
   });
-
 </script>
-
 </body>
 </html>
